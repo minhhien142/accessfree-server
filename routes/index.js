@@ -1,7 +1,7 @@
 var express = require('express');
 var router = express.Router();
 var modal = require('./mongoose/mongoose.js');
-const MY_DOMAIN = "http://192.168.1.8:3000";
+const MY_DOMAIN = "http://localhost:3000";
 
 /* GET home page. */
 router.get('/', function(req, res, next) {
@@ -37,24 +37,26 @@ router.post('/data', (req, res) =>{
   
 });
 router.get('/access/:id', (req, res, next) =>{
-  modal.Cookie.findOne({ '_id': req.params.id },'url', function (err, person) {
-    if (err) return handleError(err);
-    console.log(person) // Space Ghost is a talk show host.
-    // res.json(person.url);
-      res.render('access', {});
+  // modal.Cookie.findOne({ '_id': req.params.id },'url', function (err, person) {
+  //   // if (err) res.render('error', {});
+  //   // console.log(person) // Space Ghost is a talk show host.
+  //   // res.json(person.url);
+  //     res.render('access', {});
     
-    // res.redirect(person.url);
-  })
+  //   // res.redirect(person.url);
+  // })
+
+  res.render('access', {});
+  
   
 })
 
 router.post('/getdata', (req, res) =>{
   modal.Cookie.findOne({ '_id': req.body.id },'url cookies', function (err, person) {
-    if (err) return handleError(err);
-    console.log(person) // Space Ghost is a talk show host.
-    // res.json(person.url);
-    // res.redirect(person.url);
-    res.json(person);
+    if (err) res.json({error: err});
+    else{
+      res.json(person);      
+    }
   })
 })
 
