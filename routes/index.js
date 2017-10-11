@@ -1,7 +1,7 @@
 var express = require('express');
 var router = express.Router();
 var modal = require('./mongoose/mongoose.js');
-#const MY_DOMAIN = "http://localhost:3000";
+// const MY_DOMAIN = "http://localhost:3000";
 const MY_DOMAIN = "http://accessfree.tk";
 
 /* GET home page. */
