@@ -6,5 +6,6 @@ mongoose.Promise = global.Promise;
 exports.Cat = mongoose.model('Cat', { name: String });
 exports.Cookie = mongoose.model('Cookie', {
     url: String,
-    cookies: String 
+    cookies: String,
+    date: { type: Date, default: Date.now } 
 })
