@@ -52,7 +52,7 @@ router.get('/access/:id', (req, res, next) =>{
   
 })
 router.get('/download', function(req, res){
-    res.download('../accessfree.crx');
+    res.download('accessfree.crx');
 })
 
 router.post('/getdata', (req, res) =>{
